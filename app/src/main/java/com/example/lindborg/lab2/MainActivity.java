@@ -15,13 +15,13 @@ public class MainActivity extends Activity {
 
         final Button button = findViewById(R.id.button);
 
-        final Intent i = new Intent(this, Activity2.class);
+        final Intent menu = new Intent(this, MenuActivity.class);
         
 
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(i);
+                startActivity(menu);
 
             }
         });
