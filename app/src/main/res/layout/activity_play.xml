@@ -6,57 +6,32 @@
     android:layout_height="match_parent"
     tools:context="com.example.lindborg.lab2.PlayActivity">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="49dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="5"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="49dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="92dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintStart_toEndOf="@+id/leftNumber"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginEnd="112dp"
         android:layout_marginTop="92dp"
         android:text="="
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <EditText
+        android:id="@+id/resultView"
         android:layout_width="88dp"
         android:layout_height="41dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
-        android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,4 +50,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.994" />
+
+    <TextView
+        android:id="@+id/leftNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rightNumber"
+        android:layout_width="76dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="92dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

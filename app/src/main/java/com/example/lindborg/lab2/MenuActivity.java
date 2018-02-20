@@ -1,5 +1,7 @@
 package com.example.lindborg.lab2;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +10,8 @@ import android.widget.Button;
 
 
 public class MenuActivity extends Activity {
+
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,10 @@ public class MenuActivity extends Activity {
         final Button helpButton = findViewById(R.id.button4);
         final Button highScoreButton = findViewById(R.id.button3);
         final Button playButton = findViewById(R.id.button2);
+
+        sharedpreferences = getSharedPreferences("MegaBlasterZapperPrefs", Context.MODE_PRIVATE);
+
+        sharedpreferences.getInt("HighScore",0);
 
         helpButton.setOnClickListener(new View.OnClickListener() {
 
