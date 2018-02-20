@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
                 editor.putInt(score,0);
-                editor.putInt(level,0);
-                editor.commit();
+                editor.putInt(level,1);
+                editor.apply();
                 startActivity(menu);
 
             }

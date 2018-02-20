@@ -18,6 +18,7 @@ public class PlayActivity extends Activity {
     Button playButton = null;
     TextView rightNumber = null;
     TextView leftNumber = null;
+    TextView operator = null;
     EditText resultView = null;
 
     @Override
@@ -28,6 +29,7 @@ public class PlayActivity extends Activity {
         rightNumber = findViewById(R.id.rightNumber);
         leftNumber = findViewById(R.id.leftNumber);
         resultView = findViewById(R.id.resultView);
+        operator = findViewById(R.id.operator);
 
         sharedpreferences = getSharedPreferences("MegaBlasterZapperPrefs", Context.MODE_PRIVATE);
         highScore = sharedpreferences.getInt("HighScore",0);
@@ -38,14 +40,23 @@ public class PlayActivity extends Activity {
 
             SharedPreferences.Editor editor = sharedpreferences.edit();
 
-
-
-
             public void onClick(View v) {
 
                 int rightNr = Integer.parseInt(rightNumber.getText().toString());
                 int leftNr = Integer.parseInt(leftNumber.getText().toString());
-                Integer result = leftNr + rightNr;
+                Integer result = 0;
+                if (level >= 1 )
+                {
+                    result = leftNr + rightNr;
+                }
+                else if (level >= 2 )
+                {
+                    result = leftNr - rightNr;
+                }
+                else if (level >= 3 )
+                {
+                    result = leftNr * rightNr;
+                }
                 Integer myResult = Integer.parseInt(resultView.getText().toString());
                 if(myResult.equals(result)) {
                     editor.putInt("HighScore", ++highScore);
@@ -54,6 +65,7 @@ public class PlayActivity extends Activity {
                     }
                     editor.apply();
                     generateNewQuery(level);
+                    resultView.setText("");
 
                 }
 
@@ -62,12 +74,23 @@ public class PlayActivity extends Activity {
     }
 
     void generateNewQuery(Integer level) {
+        if (level >= 1 )
+        {
+            operator.setText("+");
+        }
+        else if (level >= 2 )
+        {
+            operator.setText("-");
+        }
+        else if (level >= 3 )
+        {
+            operator.setText("*");
+        }
         Random rn = new Random();
         Integer randomLeft = rn.nextInt(100) + 1;
         Integer randomRight = rn.nextInt(100) + 1;
         leftNumber.setText(randomLeft.toString());
         rightNumber.setText(randomRight.toString());
-
     }
 
 }
